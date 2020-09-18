@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* 可以解决input尺寸不一致的问题 */
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    /* 基线对齐 */
+    vertical-align: middle;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+.w {
+    width: 100%;
+}
+
+.a {
+    text-decoration: none;
+}
+
+.w2 {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+
+/* 登录表单样式 start */
+#l_box {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    border-radius: 5px;
+    background: rgba(45,62,80,0.8);
+    overflow: hidden;
+}
+
+#l_header {
+    font-family: sans-serif;
+    margin-left: 50px;
+    margin-top: 20px;
+    font-size: 20px;
+    color: white;
+    /*鼠标无法移动选定*/
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+}
+
+.u_msg {
+    width: 300px;
+    height: 30px;
+    padding: 0 5px;
+    margin: 5px 50px;
+    border: 1px solid white;
+    background: none;
+    outline: none;
+    color: white;
+}
+
+/* 设置placeholder颜色 */
+.u_msg::-webkit-input-placeholder { /* WebKit browsers */
+    color: rgb(200, 200, 200);
+}
+
+.u_msg:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: rgb(200, 200, 200);
+}
+
+.u_msg::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: rgb(200, 200, 200);
+}
+
+.u_msg:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: rgb(200, 200, 200);
+}
+#msg{
+    /* display: block; */
+    width: 300px;
+    margin-left: 50px;
+    padding: 0 5px;
+    /* 实现文字换行 */
+    /* word-break:break-all; */
+    word-wrap:break-word; 
+    font-size: 14px;
+    color: orangered;
+    font-family: sans-serif;
+    font-weight: 100;
+}
+#l_btn {
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-radius: 15px;
+    padding: 0 5px;
+    margin-top: 5px;
+    margin-left: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+}
+
+#l_btn:hover{
+    background-color: white;
+}
+/* 登录表单样式 end */

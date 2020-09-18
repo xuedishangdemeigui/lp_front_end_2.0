@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/common.css" rel="stylesheet" type="text/css"/>
+  <script src="../resources/jquery.js" type="text/javascript"></script>
+  <script src="../js/utils/form_verification.js" type="text/javascript"></script>
+  <title>欢迎登录</title>
+
+  <!-- 此页面内嵌css样式 start -->
+  <style>
+    #l_sec {
+      position:fixed;
+      top: 0;
+      left: 0;
+      background-image: url("../imgs/image_1.jpg");
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      -webkit-background-size: cover;
+      -o-background-size: cover;
+      background-position: center 0;
+    }
+    .pos{
+      position: absolute;
+      left: 50%;
+      top: 50%; 
+      transform: translate(-50%, -50%);
+    }
+  </style>
+  <!-- 此页面内嵌css样式 end -->
+
+</head>
+<body>
+    <div class="w" id="l_sec">
+
+        <!-- 登录表单设计 start -->
+        <div id="l_box" class="pos">
+          <div id="l_header">欢迎登陆</div>
+          <form id="l_form">
+            <input onfocus="msg_clear()" class="u_msg" id="tel" type="tel" name="tel"  placeholder="请输入手机号" autocomplete="off"/>
+            <input onfocus="msg_clear()" class="u_msg" id="pwd" type="password" name="pwd" placeholder="请输入密码"/>
+            <div id="msg"></div>
+            <input id="l_btn" type="button" value="登录" onclick="login()"/>
+          </form>
+        </div>
+        <!-- 登录表单设计 end -->
+
+    </div>
+</body>
+</html>
+
+<!-- 此页面内嵌js模块 start -->
+<script>
+
+  var tel=document.getElementById("tel");
+  var pwd=document.getElementById("pwd");
+  var msg=document.getElementById("msg");
+  
+  // 点击登录按钮触发
+  function login(){
+    if(form_verification.tel_check(tel,msg)&&form_verification.pwd_check(pwd,msg)){
+      jQuery.ajax({
+        url: "http://localhost:8009/little-project/login",
+        dataType: "JSON",
+        type: "POST",
+        data: {
+          tel: tel.value,
+          pwd: pwd.value,
+          //返回数值，表示从1970年1月1日0时0分0秒（UTC，即协调世界时）距离该日期对象所代表时间的毫秒数。
+          timeStamp: new Date().getTime()
+        },
+        success: function(result){
+          console.log(result);
+        }
+      });
+    }
+  }
+
+  //清空msg信息
+  function msg_clear(){
+    msg.innerHTML="";
+  }
+  
+</script>
+<!-- 此页面内嵌js模块 end -->
